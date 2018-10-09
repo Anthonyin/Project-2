@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 17px;
+  background-color: rgb(212, 212, 212);
+  line-height: 1.6;
+}
+
+img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  /* margin-bottom: 5px; */
+  display: inline-block;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+/* MOVIE CARD STYLES */
+
+.movieCard {
+  display: inline-block;
+}
+
+#trending-movies-tv-container,
+#popular-tv-container,
+#popular-movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+}
+
+/* .overlay {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: auto;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.movieCard:hover .overlay {
+  opacity: 1;
+}
+
+.container-fluid {
+  margin: 0 auto;
+}
