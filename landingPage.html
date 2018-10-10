@@ -12,6 +12,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- <script src="main.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="cardStyle.css">
 </head>
 
 <body>
@@ -34,14 +35,20 @@
           <a class="nav-link" href="#">Sign Up</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search for movies & shows here" aria-label="Search">
+      <form id="searchForm" class="form-inline my-2 my-lg-0">
+        <input id="searchText" class="form-control mr-sm-2" type="search" placeholder="Search for movies & shows here"
+          aria-label="Search">
         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>
 
   <div class="container-fluid center ml-5">
+
+
+    <div class="container">
+      <div id="movies" class="row"></div>
+    </div>
 
     <!-- <div id="cards-appear-here">
   </div>
@@ -75,10 +82,10 @@
 
     </section>
   </div>
-
+  <script src=""></script>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="models/main.js"></script>
 <script type="text/javascript">
 
   $.ajax({
@@ -96,14 +103,18 @@
       // $("<img>").attr("src", posterPath + response.results[i].poster_pvar ath)
       // var moviePage = $("<a>").attr("href", ) //this will be link to next page that has movie info 
       var movieLink = $("<a>").attr("href", "moviePage.html");
+
       var movieImage = $("<img>").attr("src", posterPath + response.results[i].poster_path);
-      var movieCard = $("<div>").addClass("movieCard", { id: response.results[i].id });
+      var movieCard = $("<div>").attr("id", response.results[i].id);
+      var movieButton = $("<h5>").html(response.result[i].name);
       var title = response.results[i].title;
       var overlay = $("<div>").addClass("overlay");
       overlay.text(title);
 
       movieLink.append(movieCard);
+      // movieCard.attr("id", movie.id);
       movieCard.append(movieImage);
+      movieImage.append(movieButton);
       movieCard.append(overlay);
 
       $("#trending-movies-tv-container").append(movieLink);
@@ -167,6 +178,10 @@
     }
 
   });
+
+
+
+
 
 
 </script>

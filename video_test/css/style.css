@@ -1,0 +1,110 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
+}
+
+iframe {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.firstImg1,
+.firstImg2,
+.firstImg3 {
+  position: relative;
+  opacity: 0.7;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+}
+
+.firstImg1 {
+  background-image: url('../img/image1.jpg');
+  min-height: 100%;
+}
+
+.firstImg2 {
+  background-image: url('../img/image2.jpg');
+  min-height: 500px;
+}
+
+.firstImg3 {
+  background-color: white;
+  min-height: 400px;
+}
+
+.section.youtube {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-light {
+  text-align: center;
+  padding: 50px 80px;
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+.section-dark {
+  text-align: center;
+  padding: 50px 80px;
+  background-color: #282e34;
+  color: #ddd;
+}
+
+.cardText {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.cardText .border {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+}
+
+.cardText .border.trans {
+  background-color: transparent;
+}
+
+i {
+  padding: 30px;
+}
+i:hover {
+  padding: 30px;
+  background-color: #ffffff;
+  color: red;
+}
+
+span {
+  padding: 30px;
+}
+span:hover {
+  background-color: #ffffff;
+  color: red;
+  opacity: 0.6;
+}
+
+@media (max-width: 568px) {
+  .cardText {
+    background-attachment: scroll;
+  }
+}
