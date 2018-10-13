@@ -56,7 +56,7 @@ $(document).ready(function() {
       });
 
       // Display User's Favorite Movies
-      $("#faves"|.click(function() {
+      $("#faves").click(function() {
         var queryURL = "/api/users/fave/" + user.displayName;
         $.ajax({
           url: queryURL,
