@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title> Regard-Eh! </title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+
+
+  <!-- BootStrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" media="screen" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/style.css">
+
+
+  <!-- FireBase -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.2.0/firebaseui.css" />
+
+  <!-- Javascript -->
+
+  <script src="./js/index.js"></script>
+  <script src="./js/landingPage.js"></script>
+
+  <!-- calendar -->
+  <link rel='stylesheet' href='./fullcalendar-3.9.0/fullcalendar.css' />
+
+
+  <!-- datepicker -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- calendar -->
+  <link rel='stylesheet' href='./fullcalendar-3.9.0/fullcalendar.css' />
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script src='./fullcalendar-3.9.0/fullcalendar.js'></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+      <a id="brand" class="navbar-brand py-0" href="index.html"> <img src="./images/logo.png" alt="logo" id="logo">
+
+        Regard<span id="brand2">-Eh!</span></a>
+
+
+      <form class="form-inline my-2 my-lg-0" id="searchForm">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Movie..." aria-label="Search" id="searchText">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="submit">Search</button>
+      </form>
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" id="faves"> Faves</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" id="calendarnav"> Calendar</a>
+        </li>
+
+        <li class="nav-item active ">
+          <a class="nav-link" href="#" id="loginout">Log In</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+
+
+  <div class="container">
+
+    <div id="calendar"> </div>
+
+    <!-- Search Bar Results -->
+    <div id="movies" class="row">
+
+    </div>
+
+    <!-- Individual Movie Card -->
+
+    <div id="movie">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="#" id="movieimg" class="thumbnail">
+        </div>
+
+        <div class="col-md-8">
+          <h2> <strong id="movietitle"> </strong></h2>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Genre:</strong> <span id="moviegenre"></span>
+            </li>
+
+            <li class="list-group-item"><strong>Released Date: </strong><span id="movierelease"></span>
+            </li>
+
+            <li class="list-group-item"><strong>Revenue: </strong>$<span id="movierevenue"></span>
+            </li>
+
+            <li class="list-group-item"><strong>Runtime: </strong><span id="movieruntime"></span>
+              minutes</li>
+
+            <li class="list-group-item"><strong> IMDB Rating: </strong><span id="imdbrating"> N/A </span></li>
+
+            <li class="list-group-item"><strong>Rotten Tomatoes Rating: </strong><span id="rottenrating"> N/A </span></li>
+          </ul>
+
+          <div class="container mt-3">
+            <h3 style="text-align:center" id="plot"> <strong>Overview - </strong> <span id="movieoverview"></span> </h3>
+
+          </div>
+
+          <div class="container mt-5">
+            <a href="#" target="_blank" class="btn btn-primary" id="imdb">View IMDB</a>
+
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" id="watchlater">
+              Watch Later
+            </button>
+
+            <button id="favorites" class="btn btn-secondary"> Add to Favorites </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container mt-3">
+        <h3 style="text-align:center">Watch Trailer</h3>
+        <div class="youtube-player">
+          <iframe id="trailer" width="800" height="450" src="#" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+  <!-- Modal  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">When are you free?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form>
+
+            <p>Date: <input type="text" id="datepicker" name="date"></p>
+
+          </form>
+
+          <script>
+            $(function () {
+              $("#datepicker").datepicker();
+              $("#datepicker").attr("autocomplete", "off");
+            });
+          </script>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="save" type="button" class="btn btn-primary" data-dismiss="modal">Save!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Landing Page -->
+
+  <div class="container-fluid center ml-5">
+
+    <div id="mainpage">
+      <button type="button" class="btn btn-primary">Current Trending Movies & Shows</button>
+
+      <div id="trending-movies-tv-container"></div>
+
+
+      <button type="button" class="btn btn-primary">Popular TV Shows</button>
+      <div id="popular-tv-container">
+
+      </div>
+
+      <button type="button" class="btn btn-primary">Popular Movies</button>
+      <div id="popular-movies-container">
+
+      </div>
+
+    </div>
+
+</body>
+
+</html>

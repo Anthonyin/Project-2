@@ -1,0 +1,15 @@
+body,
+html {
+  height: 100%;
+  font-family: "Eczar", serif;
+  font-size: 56px;
+  text-align: center;
+  color: white;
+}
+
+.container-fluid {
+  background-image: url("../images/netflix-image.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
